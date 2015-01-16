@@ -1,9 +1,18 @@
+var userPoints = new Object();
+userPoints.stay = 0;
+userPoints.chase = 10;
+userPoints.goLeft = 0;
+userPoints.goRight = 15;
+userPoints.wait = 5;
+userPoints.climb = 100;
+
+
 var name = prompt("What is your name?");
 console.log("Greetings "  + name + "!  Welcome to Adventures of Nash, The Dog");
 
 
 function begin() {
-var startGame = ["YES","NO"];
+  var startGame = ["YES","NO"];
 
   var wannaPlay = prompt("Are you Ready to play? (YES or NO)").toUpperCase();
   if (wannaPlay === startGame[0]) {
@@ -28,7 +37,7 @@ function gameStep1() {
   }
   else {
     console.log("Nash is a pretty smart dog, and squirrels are high in protein, but she will not be able to find her way home. GAME OVER - you lost your dog.");
-    return;
+    return (console.log(userPoints.stay + " Points have been awarded to you."));
   }
 
 };
@@ -36,23 +45,25 @@ function gameStep1() {
 
 function gameStep2() {
   var leftRight = prompt("Did Nash run LEFT or RIGHT").toUpperCase();
-    if (leftRight === "RIGHT") {
-      console.log("There she is! Up ahead! In the tree!");
-      gameStep3();
-    }
-    else {
-      console.log("Looks like she ran the other way. GAME OVER.");
-      return;
+  if (leftRight === "RIGHT") {
+    console.log("There she is! Up ahead! In the tree!");
+    gameStep3();
+  }
+  else {
+    console.log("Looks like she ran the other way. GAME OVER.");
+    return (console.log(userPoints.chase + userPoints.goLeft + " Points have been awarded to you."));
 
-    }
+  }
 };
 
 function gameStep3() {
   var climbWait = prompt("She has been up that tree for a while now. Looks like I have a choice to make - climb the tree or wait for her to come down. Type CLIMB or WAIT.").toUpperCase();
   if (climbWait === "CLIMB") {
     console.log("You caught her! Congrats, you have won!");
+    return (console.log(userPoints.chase + userPoints.goRight + userPoints.climb + " Points have been awarded to you."));
   }
   else {
     console.log("Looks like Nash is stuck in the tree. Time to call for backup. GAME OVER.");
+    return (console.log(userPoints.chase + userPoints.goRight + userPoints.wait + " Points have been awarded to you. Better luck next time."))
   }
 };
