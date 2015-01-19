@@ -64,11 +64,11 @@ function gameStep2() {
 function gameStep3() {
   var climbWait = prompt("She has been up that tree for a while now. Looks like I have a choice to make - climb the tree or wait for her to come down. Type CLIMB or WAIT.").toUpperCase();
   if (climbWait === "CLIMB") {
-    console.log("You caught her! Congrats, you have won!");
+  //  console.log("You caught her! Congrats, you have won!");
     userPoints += pointsPossible.chase;
     userPoints += pointsPossible.goRight;
     userPoints += pointsPossible.climb;
-    return (console.log("Your total points: " + userPoints));
+    return (console.log("You caught her! Congrats, you have won! Your total points: " + userPoints));
   }
   else {
     console.log("Looks like Nash is stuck in the tree. Time to call for backup. GAME OVER.");
